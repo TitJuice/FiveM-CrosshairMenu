@@ -1,0 +1,73 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div id="hud">
+                <transition name="slide-fade" appear>
+                    <div v-show="id" class="id-text">ID: {{id}}</div>
+                </transition>
+                <transition name="slide-fade" appear>
+                    <div v-show="discordText" class="discord-text">2Turnt RP<span style="color:rgb(0, 170, 255)"> | </span>DISCORD.GG/2TURNT</div>
+                </transition> 
+            </div>
+            <transition name="slide-fade" appear>
+                <!-- <div v-show="hud" class="hud-container row justify-content-center fixed-bottom">
+                    <div class="bar progress">
+                        <div 
+                            class="health-bar progress-bar" 
+                            role="progressbar" 
+                            :style="{ width: health + '%'}"
+                            :aria-valuenow="health"
+                            aria-valuemin="0" 
+                            aria-valuemax="100"
+                        >
+                        <i class="icon fas fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="bar progress">
+                        <div 
+                            class="armor-bar progress-bar" 
+                            role="progressbar" 
+                            :style="{ width: armor + '%'}"
+                            :aria-valuenow="armor"
+                            aria-valuemin="0" 
+                            aria-valuemax="100"
+                        >
+                        <i class="icon fas fa-shield-alt" style="color:#ffffff;"></i>
+                        </div>
+                    </div>
+                </div> -->
+            </transition>
+            <div id="crosshair">
+                <transition name="fade" appear>
+                    <div v-show="menu" class="crosshair-menu">
+                        <h2 class="crosshair-menu-title">Crosshair Menu</h2>
+                        <img class="crosshair-menu-watermark" src="https://cdn.discordapp.com/attachments/1061071346966204436/1078613799218720798/logo.png">
+                        <img class="preview-crosshair" v-show="url != ''" :src="url" :width="size" :height="size">
+                        <p class="crosshair-menu-checkbox-text"></p>
+                        <div class="checkbox">
+                        <input v-model="reticle" type="checkbox">
+                        </div>
+                        <p class="crosshair-menu-url-text">Image URL</p>
+                        <input v-model="url" type="url" class="crosshair-menu-url-input" pattern="https://.*" required placeholder="https://discordapp.com/">
+                        <p class="crosshair-menu-size-text-1">Size</p>
+                        <input class="crosshair-menu-size-range" v-model="size" type="range" name="size" min="0" max="700">
+                        <p class="crosshair-menu-size-text-2">{{size}}</p>
+                        <button v-on:click="update" class="submit-button">Update Crosshair</button>
+                    </div>
+                </transition>
+                <img class="crosshair" v-show="!menu && url != ''" :src="url" :width="size" :height="size">
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
